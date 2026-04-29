@@ -26,7 +26,7 @@ It helps healthcare staff manage patient records, track health data, and view in
    python app.py
 
 3. Open browser:
-   http://localhost:5000
+   http://localhost:5001
 
 # Author
 Akshata Deshmukh
