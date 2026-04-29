@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Patient Records</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: linear-gradient(135deg, #a18cd1, #c2b2ff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* MAIN CARD */
+.container {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    width: 95%;
+    max-width: 1000px;
+}
+
+/* TITLE */
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #6a5acd;
+}
+
+/* TABLE */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background: #a18cd1;
+    color: white;
+    padding: 12px;
+}
+
+td {
+    padding: 12px;
+    text-align: center;
+}
+
+/* ROW STRIPES */
+tr:nth-child(even) {
+    background-color: #f5f5ff;
+}
+
+/* STATUS BADGES */
+.status {
+    padding: 5px 10px;
+    border-radius: 20px;
+    color: white;
+    font-size: 14px;
+}
+
+.high {
+    background: #ff4d4d;
+}
+
+.low {
+    background: #ffc107;
+    color: black;
+}
+
+.normal {
+    background: #28a745;
+}
+
+/* BUTTON */
+button {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 15px;
+    margin: 2px;
+    cursor: pointer;
+    color: white;
+}
+
+/* ACTION COLORS */
+.view-btn { background: #6a5acd; }
+.update-btn { background: #ffc107; color:black; }
+.delete-btn { background: #ff4d4d; }
+
+button:hover {
+    opacity: 0.8;
+}
+
+/* BACK BUTTON */
+.back {
+    display: block;
+    margin: 20px auto 0;
+    background: #6a5acd;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>🩺 Patient Records</h2>
+
+<table>
+
+<tr>
+<th>Name</th>
+<th>Age</th>
+<th>Gender</th>
+<th>BP</th>
+<th>Heart Rate</th>
+<th>Temperature</th>
+<th>Status</th>
+<th>Action</th>
+</tr>
+
+{% for p in patients %}
+
+<tr>
+<td>{{ p.name }}</td>
+<td>{{ p.age }}</td>
+<td>{{ p.gender }}</td>
+<td>{{ p.bp }}</td>
+<td>{{ p.hr }}</td>
+<td>{{ p.temp }}</td>
+
+<td>
+    {% if p.alert and "HIGH" in p.alert %}
+        <span class="status high">🔴 High Risk</span>
+
+    {% elif p.alert and "LOW" in p.alert %}
+        <span class="status low">🟡 Low Risk</span>
+
+    {% elif p.alert and "NORMAL" in p.alert %}
+        <span class="status normal">🟢 Normal</span>
+
+    {% else %}
+        <span class="status">⚪ No Status</span>
+    {% endif %}
+</td>
+
+<td>
+    <!-- 📊 VIEW -->
+    <a href="/patient_graph/{{ p.id }}">
+        <button class="view-btn">📊</button>
+    </a>
+
+    <!-- ✏️ UPDATE -->
+    <a href="/update/{{ p.id }}">
+        <button class="update-btn">✏️</button>
+    </a>
+
+    <!-- 🗑 DELETE -->
+    <a href="/delete/{{ p.id }}" onclick="return confirm('Are you sure?')">
+        <button class="delete-btn">🗑</button>
+    </a>
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+<a href="/dashboard">
+<button class="back">⬅ Back</button>
+</a>
+
+</div>
+
+</body>
+</html>

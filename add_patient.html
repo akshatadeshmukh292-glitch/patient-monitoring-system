@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Add Patient</title>
+
+<style>
+body {
+    background: linear-gradient(to right, #d7a7e7, #fad0c4);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    font-family:Arial;
+}
+
+.box {
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 0 15px gray;
+}
+
+input, select {
+    padding:8px;
+    width:200px;
+    margin:5px;
+}
+
+button {
+    padding:10px;
+    border:none;
+    border-radius:8px;
+    background:#cd93e8;
+    color:white;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+<h2>➕ Add Patient</h2>
+
+<form action="/add_patient" method="POST">
+
+<input name="name" placeholder="Name"><br>
+<input name="age" type="number" placeholder="Age"><br>
+<select name="gender">
+<option>Male</option>
+<option>Female</option>
+</select><br>
+<input name="bp" placeholder="BP"><br>
+<input name="hr" placeholder="Heart Rate"><br>
+<input name="temp" placeholder="Temperature"><br>
+
+<button>Save 💾</button>
+
+</form>
+
+</div>
+
+</body>
+</html>

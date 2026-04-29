@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Suggestion</title>
+
+<style>
+body {
+    background: linear-gradient(to right, #f4f2f5, #daa2e8);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    font-family:Arial;
+    color:rgb(10, 8, 16);
+}
+
+.box {
+    text-align:center;
+    padding:30px;
+    border-radius:15px;
+    background:rgba(255,255,255,0.1);
+}
+.big { font-size:40px; }
+.symbol { font-size:80px; }
+</style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+<div class="symbol">{{sym}}</div>
+<div class="big">{{msg}}</div>
+
+<br>
+
+{% if "consult" in msg %}
+1.Take immediate rest and stay calm<br>
+2.Practice deep breathing / relaxation<br>
+3.Keep the body cool (fan, light clothes, wet cloth)<br>
+4.Drink plenty of water (stay hydrated)<br>
+5.Avoid salt, caffeine, oily and junk food<br>
+6.Avoid stress, anger, and heavy physical activity<br>
+
+{% elif "Mild" in msg %}
+1.Rest and lie down, keep legs slightly raised<br>
+2.Take warm or salty fluids (ORS, soup, tea/coffee)<br>
+3.Keep the body warm (blanket, warm clothes)<br>
+4.Avoid sudden standing or movements<br>
+5.Eat small, frequent meals<br>
+6.Maintain proper hydration and nutrition<br>
+  
+
+{% else %}
+1.Maintain a balanced and healthy diet<br>
+2.Do regular exercise (walking, yoga)<br>
+3.Get proper sleep (7–8 hours)<br>
+4.Stay well hydrated<br>
+5.Keep stress under control<br>
+6.Follow a healthy lifestyle (avoid junk food, smoking)<br> 
+
+{% endif %}
+
+<br><br>
+
+<a href="/view_patients">
+<button>Back</button>
+</a>
+
+</div>
+
+</body>
+</html>

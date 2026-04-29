@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dashboard</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: radial-gradient(circle, #e0baeb, #babee9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* MAIN CARD */
+.container {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    text-align: center;
+    width: 300px;
+}
+
+/* TITLE */
+h1 {
+    margin-bottom: 20px;
+    color: #6a5acd;
+}
+
+/* BUTTONS */
+button {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #a18cd1, #c2b2ff);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+.logout {
+    background: #ec6565;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>📊 Dashboard</h1>
+
+<a href="/add_patient">
+    <button>➕ Add Patient</button>
+</a>
+
+<a href="/view_patients">
+    <button>📋 View Patients</button>
+</a>
+
+<a href="/">
+    <button class="logout">🚪 Logout</button>
+</a>
+
+</div>
+
+</body>
+</html>
